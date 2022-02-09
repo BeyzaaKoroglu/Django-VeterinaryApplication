@@ -1,9 +1,8 @@
 from rest_framework import viewsets
 
+from pets.filters import PetFilter, PetOwnerFilter
 from pets.models import Pet, PetOwner
 from pets.serializers import PetOwnerSerializer, PetSerializer
-
-from pets.filters import PetOwnerFilter, PetFilter
 
 
 class PetOwnerViewSet(viewsets.ModelViewSet):
