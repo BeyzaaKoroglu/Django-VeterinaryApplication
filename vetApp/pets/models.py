@@ -12,14 +12,14 @@ class PetOwner(BaseAbstractModel):
     email_validator = EmailValidator()
 
     full_name = models.CharField(max_length=100, verbose_name=_("Full Name"))
-    address = models.CharField(max_length=1000, verbose_name=_("Address"))
+    address = models.CharField(max_length=1000, verbose_name=_("Address"), null=True, blank=True)
     phone = models.CharField(
         max_length=20,
         verbose_name=_("Phone Number"),
         validators=[phone_number_validator],
         help_text=_("Phone number format: +901234567890."),
     )
-    email = models.EmailField(verbose_name=_("E-mail"), validators=[email_validator])
+    email = models.EmailField(verbose_name=_("E-mail"), validators=[email_validator], null=True, blank=True)
 
     class Meta:
         verbose_name = _("Pet Owner")
@@ -38,7 +38,7 @@ class Pet(BaseAbstractModel):
     genus = models.CharField(max_length=50, verbose_name=_("Genus"))
     name = models.CharField(max_length=50, verbose_name=_("Name"))
     age = models.PositiveSmallIntegerField(verbose_name=_("Age"))
-    description = models.TextField(max_length=2000, verbose_name=_("Description"))
+    description = models.TextField(max_length=2000, verbose_name=_("Description"), null=True, blank=True)
 
     class Meta:
         verbose_name = _("pet")

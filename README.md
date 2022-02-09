@@ -45,6 +45,20 @@ $ python -c 'from django.core.management.utils import get_random_secret_key; pri
 
 - The parameters in the DATABASE_URL variable in the .env file are the superuser username and password, the IP and port specified for the server, and the database name, respectively.
 
+### Migrations for SQL
+
+```sh
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+### Migrations for SQL
+
+```sh
+$ python manage.py createsuperuser
+```
+
+
 ## Run
 
 ```sh
