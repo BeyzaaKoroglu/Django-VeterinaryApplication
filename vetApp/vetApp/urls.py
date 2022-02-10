@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from pets.views import PetOwnerViewSet, PetViewSet
+from pets.views import PetOwnerViewSet, PetViewSet, AdminPetOwnerViewSet, AdminPetViewSet
 from vetApp.router import router
+
 
 router.register("pet-owners", PetOwnerViewSet)
 router.register("pets", PetViewSet)
+router.register("admin-pet-owners", AdminPetOwnerViewSet, basename="admin-pet-owners")
+router.register("admin-pets", AdminPetViewSet, basename="admin-pets")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
